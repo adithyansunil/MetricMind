@@ -1,0 +1,53 @@
+# ============================================
+# MetricMind - Governed Business Dimensions
+# ============================================
+
+dimensions:
+
+  time:
+    name: Time
+    description: Date-based dimensions for time analysis
+    source_table: sales
+    fields:
+
+      date:
+        column: sale_date
+        type: date
+
+      month:
+        expression: DATE_TRUNC('month', sale_date)
+        type: date
+
+      quarter:
+        expression: DATE_TRUNC('quarter', sale_date)
+        type: date
+
+      year:
+        expression: DATE_TRUNC('year', sale_date)
+        type: date
+
+
+  geography:
+    name: Geography
+    description: Geographic dimensions for regional analysis
+    source_table: sales
+    fields:
+
+      region:
+        column: region
+        type: string
+
+      country:
+        column: country
+        type: string
+
+
+  product:
+    name: Product
+    description: Product dimensions for product-level analysis
+    source_table: sales
+    fields:
+
+      product:
+        column: product
+        type: string
