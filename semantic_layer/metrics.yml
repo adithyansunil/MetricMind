@@ -1,0 +1,41 @@
+# ============================================
+# MetricMind - Governed Business Metrics
+# ============================================
+
+metrics:
+
+  revenue:
+    name: Revenue
+    description: Total sales revenue generated from transactions
+    type: sum
+    source_table: sales
+    source_column: revenue
+    aggregation: SUM
+
+  cost:
+    name: Cost
+    description: Total cost associated with sales transactions
+    type: sum
+    source_table: sales
+    source_column: cost
+    aggregation: SUM
+
+  profit:
+    name: Profit
+    description: Total profit calculated from revenue minus cost
+    type: calculated
+    formula: revenue - cost
+
+  margin:
+    name: Margin
+    description: Profit margin calculated from profit divided by revenue
+    type: calculated
+    formula: (profit / revenue) * 100
+
+  units_sold:
+    name: Units Sold
+    description: Total number of units sold
+    type: sum
+    source_table: sales
+    source_column: units
+    aggregation: SUM
